@@ -90,6 +90,18 @@ pub fn parse_cli_args() -> io::Result<Config> {
             .possible_values(&Minify::variants())
             .case_insensitive(true)
             .default_value(DEFAULT_MINIFY_LEVEL))
+        .arg(Arg::with_name("processor")
+            .value_name("PROCESSOR")
+            .help("Configures a program that will be used to additionally process the template replacements.")
+            .long_help(
+                "Configures the program that will be used to additionall process the template \
+                replacements. This program will be executed with any parameters you specify.\n\n\
+                It will receive one JSON object per line via its standard input, consisting of \
+                a context object (in `ctx`), the replacement type string (in `ty`), the options \
+                object corresponding to this replacement type (in `options`, if any), and a value \
+                (the things you're supposed to use to fill this replacement, in `value`)."
+            )
+            .last(true))
         .get_matches();
 
     let root = match config.value_of("root") {
