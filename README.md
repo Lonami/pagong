@@ -1,3 +1,7 @@
+Moved to https://codeberg.org/Lonami/pagong. The GitHub repository may be deleted in the future.
+
+---
+
 # Pagong ![pagong's logo](logo.svg)
 
 > *Boring-simple Static-Site-Generator*
